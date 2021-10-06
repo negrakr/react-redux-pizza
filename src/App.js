@@ -1,12 +1,10 @@
 import Header from './Header'
-import Button from './Button'
 
 function App() {
   return (
     <div className="App">
       <div className="wrapper">
         <Header />
-        <Button outline>Кнопка для проверки</Button>
         <div className="content">
           <div className="container">
             <div className="content__top">
