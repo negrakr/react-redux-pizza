@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-function PizzaBlock({ imageUrl, name, price, types, sizes }) {
+import LoadingBlock from './loadingBlock'
+
+function PizzaBlock({ imageUrl, name, price, types, sizes, isLoading }) {
   const availableTypes = ['тонкое', 'традиционное']
   const availableSizes = [26, 30, 40]
 
@@ -11,6 +13,10 @@ function PizzaBlock({ imageUrl, name, price, types, sizes }) {
 
   const onSelectType = (index) => {
     setActiveType(index)
+  }
+
+  if (isLoading) {
+    return <LoadingBlock />
   }
 
   const onSelectSize = (index) => {
@@ -84,12 +90,14 @@ PizzaBlock.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   types: PropTypes.arrayOf(PropTypes.number).isRequired,
-  sizes: PropTypes.arrayOf(PropTypes.number).isRequired
+  sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
+  isLoading: PropTypes.bool
 }
 
 PizzaBlock.defaultProps = {
   types: [],
-  sizes: []
+  sizes: [],
+  isLoading: false
 }
 
 export default PizzaBlock
