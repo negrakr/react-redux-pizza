@@ -67,6 +67,7 @@ function Cart() {
                       name={obj.name}
                       type={obj.type}
                       size={obj.size}
+                      image={obj.imageUrl}
                       totalPrice={items[obj.id].totalPrice}
                       totalCount={items[obj.id].items.length}
                       onRemove={onRemoveCartItem}
@@ -81,14 +82,14 @@ function Cart() {
                   <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
                 </div>
                 <div className="cart__bottom-buttons">
-                  <a href="/" className="button button--outline button--add go-back-btn">
+                  <div className="button button--outline go-back-btn">
                     <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <Link to="/">
                       <span>Вернуться назад</span>
                     </Link>
-                  </a>
+                  </div>
                   <div className="button pay-btn">
                     <span>Оплатить сейчас</span>
                   </div>
